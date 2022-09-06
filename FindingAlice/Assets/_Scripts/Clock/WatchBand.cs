@@ -35,11 +35,11 @@ public class WatchBand : MonoBehaviour
         angle = new Vector3(0, 0, Mathf.Atan2(dy, dx) * (180f / Mathf.PI));
         transform.rotation = Quaternion.Euler(angle);
 
-        Vector3 scale = new Vector3(Vector3.Distance(clockPosition, playerPosition), 0.3f, 0f);
+        Vector3 scale = new Vector3(Vector3.Distance(clockPosition, playerPosition), 4f, 0f);
         transform.localScale = scale;
         if (ClockManager.C.CS == ClockState.shoot)
         {
-            x += 0.003f;
+            x += 0.005f;
             mat.mainTextureScale = new Vector2(x, 1f);
         }
         else if (ClockManager.C.CS == ClockState.shootMaximum)
@@ -48,8 +48,10 @@ public class WatchBand : MonoBehaviour
         }
         else
         {
-            x = 0;
-            mat.mainTextureScale = Vector2.zero;
+            x = Mathf.Lerp(x, 0, Time.deltaTime * 6);
+            //x = 0;
+            //mat.mainTextureScale = Vector2.zero;
+            mat.mainTextureScale = new Vector2(x, 1f);
         }
     }
 }
