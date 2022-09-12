@@ -1,22 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectionManager : MonoBehaviour
 {
     [SerializeField] GameObject[] collection;
 
-    int collectionCount;
     
+    GameData gameData;
+
+    void Awake()
+    {
+        gameData = DataController.instance.LoadGameDate();
+    }
 
     void Start()
     {
-        //collectionCount = 
+        
     }
 
     void Update()
     {
-        
+        gameData. 
     }
 
     public void GetItem(int array)
