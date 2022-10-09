@@ -27,6 +27,7 @@ public class CameraTarget : MonoBehaviour
             //transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 7f);
             transform.position = targetPosition;
         }
+
         else
         {
             if (joystickPos.localPosition != Vector3.zero &&
@@ -38,7 +39,8 @@ public class CameraTarget : MonoBehaviour
                     joystickUpNDown = true;
                     joystickUpNDownStartTime = Time.time;
                 }
-                if (joystickUpNDown && Time.time - joystickUpNDownStartTime > 1f)
+
+                if (joystickUpNDown && Time.time - joystickUpNDownStartTime > 0.5f) //10.08. 기존 1f였음
                 {
                     if (Vector2.Dot(joystickPos.anchoredPosition.normalized, joystickPos.up) > 0.9f)
                         targetPosition = playerTrans.position + new Vector3(0, 7, 0);
@@ -46,6 +48,7 @@ public class CameraTarget : MonoBehaviour
                     transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 3f);
                 }
             }
+
             else
             {
                 joystickUpNDown = false;

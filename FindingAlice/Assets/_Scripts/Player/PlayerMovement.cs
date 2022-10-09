@@ -319,16 +319,6 @@ public class PlayerMovement : MonoBehaviour
             isGround = false;
     }
 
-    //1008 freeposition
-    IEnumerator FreezeFalse()
-    {
-        yield return new WaitForSeconds(1f);
-        //playerRigidbody.constraints = RigidbodyConstraints.None;
-        //playerRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        //playerRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-    }
-
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
